@@ -1,0 +1,13 @@
+﻿<header>
+    <div id="go-back" ng-click="goBack()"><i class="icon-chevron-left"></i></div>
+    <div class="title">{{title}}</div>
+    <div id="nav-btn" ng-click="toggleMainNav()">
+      <i class="icon-reorder"></i>
+    </div>
+</header>
+<div id="main-nav" auto-height ng-class="{'animate': animate, 'slide-in': slideIn, 'slide-out': !slideIn}">
+    <ul class="nav scrollable">
+        <li ng-repeat="link in links"><a href="{{link.url}}" ng-click="hideMainNav()">{{link.title}}</a></li>
+    </ul>
+    <div class="fill-nav" ng-click="hideMainNav()"></div>
+</div>

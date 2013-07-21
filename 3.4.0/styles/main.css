@@ -1,0 +1,221 @@
+/* Will be compiled down to a single stylesheet with your sass files */
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    /* account for header and footer */
+    padding: 0;
+    margin: 0;
+    /* scroll inside box only */
+    box-sizing: border-box;
+    font-size: 20px;
+}
+
+.scrollable {
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.view-container {
+    position: relative;
+    width: 100%;
+}
+
+.page {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding: 45px 0;
+}
+
+header, footer {
+    position: fixed;
+    height: 65px;
+    background: #08c;
+    width: 100%;
+    color: #fff;
+    z-index: 10;
+}
+
+    header a, footer a {
+        color: #fff;
+    }
+
+header {
+    top: 0;
+}
+
+footer {
+    bottom: 0;
+}
+
+.content {
+    top: 45px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.title {
+    text-align: center;
+    font-size: 1.8em;
+    margin-top: .5em;
+}
+
+#nav-btn, #go-back {
+    position: absolute;
+    top: 0.7em;
+    font-size: 1.4em;
+    color: #444;
+    cursor: pointer;
+}
+
+#go-back {
+    left: .8em;
+}
+
+#nav-btn {
+    right: 1em;
+}
+
+#main-nav {
+    width: 100%;
+    top: 45px;
+    left: -100%;
+    position: absolute;
+    z-index: 50;
+}
+
+    #main-nav.animate {
+        left: 0;
+    }
+
+        #main-nav.animate.slide-in {
+            left: 0;
+            -webkit-animation-name: leftNavSlideIn;
+            -webkit-animation-duration: .2s;
+            -webkit-animation-timing-function: ease-in;
+        }
+
+        #main-nav.animate.slide-out {
+            left: -100%;
+            -webkit-animation-name: leftNavSlideOut;
+            -webkit-animation-duration: .25s;
+            -webkit-animation-timing-function: ease-out;
+        }
+
+    #main-nav .nav {
+        position: absolute;
+        width: 80%;
+        height: 100%;
+        background: #e9edf0;
+        z-index: 52;
+        -webkit-border-top-right-radius: 5px;
+        -webkit-border-bottom-right-radius: 5px;
+    }
+
+        #main-nav .nav li {
+            border-bottom: 1px solid #ccc;
+        }
+
+    #main-nav .fill-nav {
+        width: 25%;
+        height: 100%;
+        background: #000;
+        opacity: 0.9;
+        position: absolute;
+        right: 0;
+        top: 0;
+        overflow: scroll;
+        -webkit-overflow-scrolling: touch;
+    }
+
+@-webkit-keyframes leftNavSlideIn {
+    /* line 61, ../../www/styles/_mainnav.scss */
+    0% {
+        -webkit-transform: translate3d(-100%, 0, 0);
+    }
+    /* line 64, ../../www/styles/_mainnav.scss */
+    100% {
+        -webkit-transform: translate3d(0%, 0, 0);
+    }
+}
+
+@-webkit-keyframes leftNavSlideOut {
+    /* line 70, ../../www/styles/_mainnav.scss */
+    0% {
+        -webkit-transform: translate3d(100%, 0, 0);
+    }
+    /* line 73, ../../www/styles/_mainnav.scss */
+    100% {
+        -webkit-transform: translate3d(0%, 0, 0);
+    }
+}
+
+
+#board {
+    display: table;
+    border: 1px solid black;
+    border-spacing: 2px;
+    margin: 20px auto;
+}
+
+.row {
+    display: table-row;
+}
+
+.cell {
+    display: table-cell;
+    border: 1px solid black;
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
+    font-size: 2.5em;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.status {
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    color: #FFFFFF;
+    font-size: 12px;
+    margin: 0px 30px;
+    padding: 2px 0px;
+    background-color: #4B946A;
+    display: none;
+}
+
+@keyframes fade {
+    from {
+        opacity: 1.0;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+
+    to {
+        opacity: 1.0;
+    }
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: 1.0;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+
+    to {
+        opacity: 1.0;
+    }
+}
+
+.blink {
+    animation: fade 3000ms infinite;
+    -webkit-animation: fade 3000ms infinite;
+}

@@ -1,0 +1,13 @@
+﻿<div class="page">
+    <section id="header">
+        <div ng-include="'views/header.html'" ng-controller="MainCtrl" />
+    </section>
+    <section id="board">
+        <div id="gameFinished" class="row blink">
+            <p class="status" ng-style="finishedStyle">Игра окончена!</p>
+        </div>
+        <div class="row" ng-repeat="row in board">
+            <div class="cell" ng-repeat="cell in row" ng-click="moveTile($parent.$index, $index)">{{cell.content}}</div>
+        </div>
+    </section>
+</div>
